@@ -25,14 +25,14 @@ class UIButtonViewController: UIViewController {
         //labelの定義
         myLabel.text = "おはようございます！";
         myLabel.textAlignment = NSTextAlignment.Center;
-        myLabel.layer.position = CGPoint(x: deviceWidth/2, y: 200);
+        myLabel.layer.position = CGPoint(x: deviceWidth/2, y: deviceHeight/2);
         self.view.addSubview(myLabel);
         
         //buttonの定義
         let myButton:UIButton = UIButton(frame: CGRectMake(0, 0, 200, 50));
         myButton.setTitle("Change Label!", forState: UIControlState.Normal);
         myButton.setTitleColor(UIColor.blueColor(), forState: UIControlState.Normal);
-        myButton.addTarget(self, action: Selector("onClick:"), forControlEvents: .TouchUpInside);
+        myButton.addTarget(self, action: #selector(self.onClick(_:)), forControlEvents: .TouchUpInside);
         myButton.layer.position = CGPoint(x: deviceWidth/2, y: 400);
         self.view.addSubview(myButton);
     }
@@ -47,7 +47,7 @@ class UIButtonViewController: UIViewController {
         }else{
             myLabel.text = "おはようございます！"
         }
-        status++;
+        status += 1;
     }
     
 }

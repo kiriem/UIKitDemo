@@ -30,7 +30,7 @@ class UIPageControllerViewController: UIViewController, UIScrollViewDelegate {
         scrollView.contentSize = CGSizeMake(CGFloat(pageSize) * width, 0);
         self.view.addSubview(scrollView);
         
-        for var i=0; i<pageSize; i++ {
+        for i in 0 ..< pageSize {
             let myLabel:UILabel = UILabel(frame: CGRectMake(CGFloat(i) * width + width/2 - 40, height/2 - 40, 80, 80));
             myLabel.backgroundColor = UIColor.greenColor();
             myLabel.textColor = UIColor.whiteColor();

@@ -39,15 +39,16 @@ class UITextFieldViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
-        println("textFieldDidBeginEditing:" + textField.text);
+        print("textFieldDidBeginEditing:" + textField.text!);
     }
     func textFieldShouldEndEditing(textField: UITextField) -> Bool {
         
         myLabel.text = textField.text;
         
-        println("textFieldShuldEndEditing:" + textField.text);
+        print("textFieldShuldEndEditing:" + textField.text!);
         return true;
     }
+    
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true;

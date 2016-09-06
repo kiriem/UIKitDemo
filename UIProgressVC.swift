@@ -15,7 +15,7 @@ class UIProgresViewController: UIViewController {
         self.title = "UIProgressView";
         self.view.backgroundColor = UIColor.whiteColor();
         
-        var myProgressView:UIProgressView = UIProgressView(frame: CGRectMake(0, 0, 200, 10));
+        let myProgressView:UIProgressView = UIProgressView(frame: CGRectMake(0, 0, 200, 10));
         myProgressView.progressTintColor = UIColor.greenColor();
         myProgressView.layer.position = CGPoint(x: self.view.frame.width/2, y: 200);
         myProgressView.transform = CGAffineTransformMakeScale(1.0, 2.0);

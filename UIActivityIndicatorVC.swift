@@ -32,7 +32,7 @@ class UIActivityIndicatorViewController: UIViewController {
         myButton.setTitle("STOP", forState: .Normal);
         myButton.setTitleColor(UIColor.whiteColor(), forState: .Normal);
         myButton.layer.position = CGPoint(x: self.view.frame.width/2, y: self.view.frame.height-50);
-        myButton.addTarget(self, action: "onClick:", forControlEvents: .TouchUpInside);
+        myButton.addTarget(self, action: #selector(self.onClick(_:)), forControlEvents: .TouchUpInside);
         self.view.addSubview(myButton);
         
     }

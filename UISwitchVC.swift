@@ -19,7 +19,7 @@ class UISwitchViewController: UIViewController {
         let mySwitch:UISwitch = UISwitch();
         mySwitch.layer.position = CGPoint(x: self.view.frame.width/2, y: self.view.frame.height/2);
         mySwitch.on = false;
-        mySwitch.addTarget(self, action: "switchOn:", forControlEvents: UIControlEvents.ValueChanged);
+        mySwitch.addTarget(self, action: #selector(self.switchOn(_:)), forControlEvents: UIControlEvents.ValueChanged);
         self.view.addSubview(mySwitch);
     }
     

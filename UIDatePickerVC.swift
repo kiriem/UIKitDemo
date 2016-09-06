@@ -19,10 +19,10 @@ class UIDatePickerViewController: UIViewController, UIPickerViewDelegate {
         self.view.backgroundColor = UIColor.whiteColor();
         
         //datePicker
-        var myDatePicker:UIDatePicker = UIDatePicker();
+        let myDatePicker:UIDatePicker = UIDatePicker();
         myDatePicker.frame = CGRectMake(0, self.view.frame.height/4, 0, 0);
         myDatePicker.timeZone = NSTimeZone.localTimeZone();
-        myDatePicker.addTarget(self, action: "changePicker:", forControlEvents: .ValueChanged);
+        myDatePicker.addTarget(self, action: #selector(self.changePicker(_:)), forControlEvents: .ValueChanged);
         self.view.addSubview(myDatePicker);
         
         //ラベル
@@ -38,7 +38,7 @@ class UIDatePickerViewController: UIViewController, UIPickerViewDelegate {
     func changePicker(sender: UIDatePicker){
         let myDateFormatter:NSDateFormatter = NSDateFormatter();
         myDateFormatter.dateFormat = "yyyy/MM/dd hh:mm";
-        var mySelectedDate:NSString = myDateFormatter.stringFromDate(sender.date);
-        dateLabel.text = mySelectedDate;
+        let mySelectedDate:NSString = myDateFormatter.stringFromDate(sender.date);
+        dateLabel.text = mySelectedDate as String;
     }
 }

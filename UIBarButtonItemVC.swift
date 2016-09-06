@@ -20,14 +20,14 @@ class UIBarButtonItemViewController:UIViewController {
         self.view.backgroundColor = UIColor.whiteColor();
         self.navigationController?.navigationBar;
         
-        myLeftButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "onClick:");
+        myLeftButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(self.onClick(_:)));
         myLeftButton.tag = 1;
         
-        myRightButton = UIBarButtonItem(title: "RightButton", style: .Plain, target: self, action: "onClick:");
+        myRightButton = UIBarButtonItem(title: "RightButton", style: .Plain, target: self, action: #selector(self.onClick(_:)));
         myRightButton.tag = 2;
-        
-        //self.navigationItem.leftBarButtonItem = myLeftButton;
-        self.navigationItem.rightBarButtonItem = myLeftButton;
+		
+		self.navigationItem.rightBarButtonItem = myLeftButton;
+		
     }
     
     func onClick(sender: UIButton){
@@ -37,7 +37,7 @@ class UIBarButtonItemViewController:UIViewController {
         case 2:
             self.view.backgroundColor = UIColor(red:1, green:0.59, blue:0.11, alpha:1);
         default:
-            println("Error");
+            print("Error");
             break;
         }
     }

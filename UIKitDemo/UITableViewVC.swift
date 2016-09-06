@@ -10,14 +10,14 @@ import UIKit
 
 class UITableViewController:UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    let myItems:NSArray = ["飯島巧", "加藤遼", "北原成貴", "鈴木貴也", "米倉幹麿", "宮島衣瑛"];
+    let myItems:NSArray = ["iPhone", "iPad", "iPod", "Mac", "Apple Watch", "AppleTV"];
     
     override func viewDidLoad() {
         super.viewDidLoad();
         
         self.title = "UITableView";
         
-        let barHeight:CGFloat = UIApplication.sharedApplication().statusBarFrame.size.height;
+        //let barHeight:CGFloat = UIApplication.sharedApplication().statusBarFrame.size.height;
         let displayWidth:CGFloat = self.view.frame.width;
         let displayHeight:CGFloat = self.view.frame.height;
         
@@ -34,8 +34,8 @@ class UITableViewController:UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        println("Num:\(indexPath.row)");
-        println("Value:\(myItems[indexPath.row])");
+        print("Num:\(indexPath.row)");
+        print("Value:\(myItems[indexPath.row])");
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -43,7 +43,7 @@ class UITableViewController:UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("MyCell", forIndexPath: indexPath)as UITableViewCell;
+        let cell = tableView.dequeueReusableCellWithIdentifier("MyCell", forIndexPath: indexPath);
         cell.textLabel!.text = "\(myItems[indexPath.row])"
         return cell;
     }

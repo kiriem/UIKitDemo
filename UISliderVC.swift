@@ -36,7 +36,7 @@ class UISliderViewController: UIViewController {
         myRedSlider.value = 0.5;
         myRedSlider.maximumTrackTintColor = UIColor.grayColor();
         myRedSlider.minimumTrackTintColor = UIColor.redColor();
-        myRedSlider.addTarget(self, action: "changeSlider:", forControlEvents: UIControlEvents.ValueChanged);
+        myRedSlider.addTarget(self, action: #selector(self.changeSlider(_:)), forControlEvents: UIControlEvents.ValueChanged);
         myRedSlider.tag = 0;
         self.view.addSubview(myRedSlider);
         
@@ -53,7 +53,7 @@ class UISliderViewController: UIViewController {
         myGreenSlider.value = 0.5;
         myGreenSlider.maximumTrackTintColor = UIColor.grayColor();
         myGreenSlider.minimumTrackTintColor = UIColor.greenColor();
-        myGreenSlider.addTarget(self, action: "changeSlider:", forControlEvents: UIControlEvents.ValueChanged);
+        myGreenSlider.addTarget(self, action: #selector(self.changeSlider(_:)), forControlEvents: UIControlEvents.ValueChanged);
         myGreenSlider.tag = 1;
         self.view.addSubview(myGreenSlider);
         
@@ -69,7 +69,7 @@ class UISliderViewController: UIViewController {
         myBlueSlider.value = 0.5;
         myBlueSlider.maximumTrackTintColor = UIColor.grayColor();
         myBlueSlider.minimumTrackTintColor = UIColor.blueColor();
-        myBlueSlider.addTarget(self, action: "changeSlider:", forControlEvents: UIControlEvents.ValueChanged);
+        myBlueSlider.addTarget(self, action: #selector(self.changeSlider(_:)), forControlEvents: UIControlEvents.ValueChanged);
         myBlueSlider.tag = 2;
         self.view.addSubview(myBlueSlider);
         
@@ -91,7 +91,7 @@ class UISliderViewController: UIViewController {
             blue = CGFloat(sender.value);
             blueLabel.text = "BLUE:\(blue)";
         default:
-            println("Error");
+            print("Error");
             break;
         }
         

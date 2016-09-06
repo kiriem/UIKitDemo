@@ -20,16 +20,16 @@ class UILocalNotificationViewController:UIViewController{
         self.view.backgroundColor = UIColor.whiteColor();
         
         let displayWidth:CGFloat = self.view.frame.width;
-        let displayHeight:CGFloat = self.view.frame.height;
+        //_:CGFloat = self.view.frame.height;
         
-        UIApplication.sharedApplication().registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Sound | UIUserNotificationType.Alert, categories: nil));
+        UIApplication.sharedApplication().registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [UIUserNotificationType.Sound, UIUserNotificationType.Alert], categories: nil));
         
         myNotificationButton = UIButton(frame: CGRectMake(0, 0, 200, 80));
         myNotificationButton.backgroundColor = UIColor.blueColor();
         myNotificationButton.setTitle("すぐに通知", forState: .Normal);
         myNotificationButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal);
         myNotificationButton.layer.position = CGPoint(x: displayWidth/2, y: 150);
-        myNotificationButton.addTarget(self, action: Selector("onClick:"), forControlEvents: .TouchUpInside);
+        myNotificationButton.addTarget(self, action: #selector(self.onClick(_:)), forControlEvents: .TouchUpInside);
         myNotificationButton.tag = 1;
         
         
@@ -38,7 +38,7 @@ class UILocalNotificationViewController:UIViewController{
         myNotificationFireButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal);
         myNotificationFireButton.backgroundColor = UIColor.redColor();
         myNotificationFireButton.layer.position = CGPoint(x: displayWidth/2, y: 300);
-        myNotificationFireButton.addTarget(self, action: Selector("onClick:"), forControlEvents: .TouchUpInside);
+        myNotificationFireButton.addTarget(self, action: #selector(self.onClick(_:)), forControlEvents: .TouchUpInside);
         myNotificationFireButton.tag = 2;
         
         self.view.addSubview(myNotificationButton);

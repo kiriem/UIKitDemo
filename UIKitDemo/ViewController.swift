@@ -11,7 +11,7 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    let myItems:NSArray = ["UILabel", "UIButton", "UITextField", "UIImageView","UITableView", "UILocalNitification", "UIWebView", "UIAlertController", "UIPickerView", "UINavigationController", "UIBarButtonItem", "UIPageControll", "UISlider", "UISwitch", "UIDatePicker", "UIActivityIndicator", "UISearchBar", "UIWindow", "UIProgressView", "UISegmentedController", "UIStepper", "UIAlertController", "UITableViewButton"];
+    let myItems:NSArray = ["UILabel", "UIButton", "UITextField", "UIImageView","UITableView", "UILocalNitification", "UIWebView", "UIAlertController", "UIPickerView", "UINavigationController", "UIBarButtonItem", "UIPageControll", "UISlider", "UISwitch", "UIDatePicker", "UIActivityIndicator", "UISearchBar", "UIWindow", "UIProgressView", "UISegmentedController", "UIStepper", "UIAlertController", "UITableViewButton", "PresentVC", "UITableViewSection"];
     
     override func viewDidLoad() {
         super.viewDidLoad();
@@ -21,7 +21,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor();
         self.navigationController?.navigationBar.barTintColor = UIColor(red:1, green:0.27, blue:0, alpha:1);
-        let barHeight:CGFloat = UIApplication.sharedApplication().statusBarFrame.size.height;
+        //let barHeight:CGFloat = UIApplication.sharedApplication().statusBarFrame.size.height;
         let displayWidth:CGFloat = self.view.frame.width;
         let displayHeight:CGFloat = self.view.frame.height;
         
@@ -115,14 +115,23 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         case 22:
             let UITableViewButtonVC = UITableViewButtonViewController();
             self.navigationController?.pushViewController(UITableViewButtonVC, animated: true);
+        case 23:
+            let PushVC:PushVCFirst = PushVCFirst()
+            self.navigationController?.pushViewController(PushVC, animated: true)
+        case 24:
+            let UITableViewSectionVC:UITableViewSection = UITableViewSection();
+            self.navigationController?.pushViewController(UITableViewSectionVC, animated: true)
+            
         default:
-            println("Error");
+            print("Error");
             break;
             
         }
         
-        println("Num:\(indexPath.row)");
-        println("Value:\(myItems[indexPath.row])");
+        print("Num:\(indexPath.row)");
+        print("Value:\(myItems[indexPath.row])");
+        
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -130,7 +139,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("MyCell", forIndexPath: indexPath)as UITableViewCell;
+        let cell = tableView.dequeueReusableCellWithIdentifier("MyCell", forIndexPath: indexPath);
         cell.textLabel!.text = "\(myItems[indexPath.row])"
         return cell;
     }

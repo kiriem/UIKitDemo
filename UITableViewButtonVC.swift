@@ -37,50 +37,50 @@ class UITableViewButtonViewController: UIViewController, UITableViewDataSource, 
     }
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        println("Num: \(indexPath.row)")
-        println("Value: \(myItems[indexPath.row])")
+        print("Num: \(indexPath.row)")
+        print("Value: \(myItems[indexPath.row])")
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        println("numberOfRowsInSection")
+        print("numberOfRowsInSection")
         return myItems.count
     }
 
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        println("canEditRowAtIndexPath")
+        print("canEditRowAtIndexPath")
         
         return true
     }
 
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        println("commitEdittingStyle:\(editingStyle)")
+        print("commitEdittingStyle:\(editingStyle)")
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        println("cellForRowAtIndexPath")
+        print("cellForRowAtIndexPath")
         
-        let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("MyCell", forIndexPath: indexPath) as UITableViewCell
+        let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("MyCell", forIndexPath: indexPath) 
         
         cell.textLabel?.text = "\(myItems[indexPath.row])"
         
         return cell
     }
 
-    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
+    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
 
-        var myShareButton: UITableViewRowAction = UITableViewRowAction(style: .Normal, title: "Share") { (action, index) -> Void in
+        let myShareButton: UITableViewRowAction = UITableViewRowAction(style: .Normal, title: "Share") { (action, index) -> Void in
             
             tableView.editing = false
-            println("share")
+            print("share")
             
         }
         myShareButton.backgroundColor = UIColor.blueColor()
         
 
-        var myArchiveButton: UITableViewRowAction = UITableViewRowAction(style: .Normal, title: "Archive") { (action, index) -> Void in
+        let myArchiveButton: UITableViewRowAction = UITableViewRowAction(style: .Normal, title: "Archive") { (action, index) -> Void in
             
             tableView.editing = false
-            println("archive")
+            print("archive")
             
         }
         myArchiveButton.backgroundColor = UIColor.redColor()

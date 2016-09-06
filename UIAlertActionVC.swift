@@ -29,24 +29,24 @@ class UIAlertActionViewController: UIViewController {
         myButton.titleLabel?.textColor = UIColor.whiteColor();
         myButton.layer.position = CGPointMake(self.view.frame.width/2, 200);
         myButton.backgroundColor = UIColor.greenColor();
-        myButton.addTarget(self, action: Selector("onClick:"), forControlEvents: .TouchUpInside);
+        myButton.addTarget(self, action: #selector(self.onClick(_:)), forControlEvents: .TouchUpInside);
         self.view.addSubview(myButton);
     }
     
     func onClick(sender:UIButton){
     
-        var myAlert = UIAlertController(title: "UIKitDemo", message: "メッセージ", preferredStyle: UIAlertControllerStyle.ActionSheet);
+        let myAlert = UIAlertController(title: "UIKitDemo", message: "メッセージ", preferredStyle: UIAlertControllerStyle.ActionSheet);
         
         
-        let myAction_1 = UIAlertAction(title: "Yes", style: UIAlertActionStyle.Default, handler: {(action: UIAlertAction!) in self.myLabel.text = "Yes"})
+        let myAction_1 = UIAlertAction(title: "Yes", style: UIAlertActionStyle.Default, handler: {(action: UIAlertAction) in self.myLabel.text = "Yes"})
         
         let myAction_2 = UIAlertAction(title: "No", style: UIAlertActionStyle.Destructive, handler: {
-            (action: UIAlertAction!) in
+            (action: UIAlertAction) in
             self.myLabel.text = "No";
         })
         
         let myAction_3 = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: {
-            (action: UIAlertAction!) in
+            (action: UIAlertAction) in
             self.myLabel.text = "Cancel";
         })
         

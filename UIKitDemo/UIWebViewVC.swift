@@ -13,6 +13,9 @@ class UIWebViewController: UIViewController, UIWebViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad();
+        
+        self.title = "UIWebView"
+        
         myWebView.delegate = self;
         myWebView.frame = self.view.bounds;
         self.view.addSubview(myWebView);

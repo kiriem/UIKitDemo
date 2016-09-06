@@ -10,7 +10,7 @@ import UIKit
 
 class UIPickerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
     var myUIPicker:UIPickerView = UIPickerView();
-    var myValues:NSArray = ["飯島巧", "加藤遼", "北原成貴", "鈴木貴也", "米倉幹麿", "宮島衣瑛"];
+    var myValues:NSArray = ["iPhone", "iPad", "iPod", "Mac", "Apple Watch", "AppleTV"];
     let myLabel:UILabel = UILabel(frame: CGRectMake(0, 0, 300, 100));
     
     override func viewDidLoad() {
@@ -38,16 +38,16 @@ class UIPickerViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         return myValues.count;
     }
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
-        return myValues[row] as String;
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return myValues[row] as? String;
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         myLabel.text = "選択：\(myValues[row])";
         
-        println("row:\(row)");
-        println("value:\(myValues[row])");
+        print("row:\(row)");
+        print("value:\(myValues[row])");
     }
     
     override func didReceiveMemoryWarning() {

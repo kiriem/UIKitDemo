@@ -19,9 +19,9 @@ class UISegmentedViewController: UIViewController {
         
         let myArray:NSArray = ["Red", "Blue", "Green"];
         
-        let mySegcon:UISegmentedControl = UISegmentedControl(items: myArray);
+        let mySegcon:UISegmentedControl = UISegmentedControl(items: myArray as [AnyObject]);
         mySegcon.center = CGPoint(x: self.view.frame.width/2, y: 400);
-        mySegcon.addTarget(self, action: "segconChanged:", forControlEvents: UIControlEvents.ValueChanged);
+        mySegcon.addTarget(self, action: #selector(self.segconChanged(_:)), forControlEvents: UIControlEvents.ValueChanged);
         mySegcon.tintColor = UIColor.grayColor();
         self.view.addSubview(mySegcon);
     }
@@ -39,7 +39,7 @@ class UISegmentedViewController: UIViewController {
         case 2:
             self.view.backgroundColor = UIColor.greenColor();
         default:
-            println("Error");
+            print("Error");
             break;
         }
         

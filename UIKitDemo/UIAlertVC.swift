@@ -22,7 +22,7 @@ class UIAlertViewController: UIViewController {
         myButton.setTitle("PUSH ME!", forState: UIControlState.Normal);
         myButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal);
         myButton.layer.position = CGPoint(x: self.view.frame.width/2, y: 200);
-        myButton.addTarget(self, action: Selector("onClick:"), forControlEvents: .TouchUpInside);
+        myButton.addTarget(self, action: #selector(self.onClick(_:)), forControlEvents: .TouchUpInside);
         self.view.addSubview(myButton);
         
     }
@@ -35,7 +35,7 @@ class UIAlertViewController: UIViewController {
         let myAlert = UIAlertController(title: "SwiftAlert", message: "Swiftを勉強してiOSアプリを開発しましょう", preferredStyle: .Alert);
         
         let myOkAction = UIAlertAction(title: "OK", style: .Default) { action in
-            println("Action OK!!")
+            print("Action OK!!")
         }
         
         myAlert.addAction(myOkAction);

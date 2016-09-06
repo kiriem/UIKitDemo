@@ -32,7 +32,7 @@ class UIWindowViewController: UIViewController {
         openButton.setTitle("起動", forState: .Normal);
         openButton.setTitleColor(UIColor.whiteColor(), forState: .Normal);
         openButton.layer.position = CGPoint(x: self.view.frame.width/2, y: 500);
-        openButton.addTarget(self, action: "onClickOpen:", forControlEvents: .TouchUpInside);
+        openButton.addTarget(self, action: #selector(self.onClickOpen(_:)), forControlEvents: .TouchUpInside);
         self.view.addSubview(openButton);
         
     }
@@ -51,7 +51,7 @@ class UIWindowViewController: UIViewController {
         closeButton.setTitle("Close", forState: .Normal);
         closeButton.setTitleColor(UIColor.whiteColor(), forState: .Normal);
         closeButton.layer.position = CGPointMake(self.myWindow.frame.width/2, self.myWindow.frame.height-50);
-        closeButton.addTarget(self, action: "onClickOpen:", forControlEvents: .TouchUpInside);
+        closeButton.addTarget(self, action: #selector(self.onClickOpen(_:)), forControlEvents: .TouchUpInside);
         self.myWindow.addSubview(closeButton);
         
         let myTextView:UITextView = UITextView(frame: CGRectMake(10, 10, self.myWindow.frame.width-20, 150));

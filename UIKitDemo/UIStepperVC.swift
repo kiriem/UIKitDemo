@@ -23,7 +23,7 @@ class UIStepperViewController: UIViewController {
         myStepper.center = CGPointMake(self.view.frame.width/2, 400);
         myStepper.backgroundColor = UIColor.grayColor();
         myStepper.tintColor = UIColor.whiteColor();
-        myStepper.addTarget(self, action: "stepperOn:", forControlEvents: UIControlEvents.ValueChanged);
+        myStepper.addTarget(self, action: #selector(self.stepperOn(_:)), forControlEvents: UIControlEvents.ValueChanged);
         myStepper.minimumValue = 0;
         myStepper.stepValue = 1;
         self.view.addSubview(myStepper);
